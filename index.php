@@ -21,6 +21,9 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /
 </head>
 
 <body>
+    <header>
+        <span>opnDMS</span>
+    </header>
     <main>
     </main>
     <script src="/res/js/themes/themes.js"></script>
