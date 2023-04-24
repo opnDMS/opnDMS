@@ -23,7 +23,14 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /
 
 <body>
     <header>
-        <span>opnDMS</span>
+        <span class="logo">opnDMS</span>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Upload</a>
+            <a href="#">Manage</a>
+            <a href="#">Search</a>
+        </nav>
+        <div class="controls"></div>
     </header>
     <main>
         <h1 class="text-center">Welcome to opnDMS!</h1>
