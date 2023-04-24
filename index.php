@@ -23,7 +23,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /
 <body>
     <main>
     </main>
-    <script src="/res/js/themes/themes.js"></script>
+    <!-- <script src="/res/js/themes/themes.js"></script> -->
 </body>
 
 </html>
