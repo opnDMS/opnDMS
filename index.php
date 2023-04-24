@@ -18,6 +18,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">
     <link rel="stylesheet" href="/res/css/main.css">
+    <link rel="stylesheet" href="/res/css/index.css">
 </head>
 
 <body>
