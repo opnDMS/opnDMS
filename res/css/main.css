@@ -29,3 +29,17 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+/* Header */
+
+header {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: var(--background2-color);
+    display: grid;
+    place-content: center start;
+}
+
+header span {
+    font-size: 1.5rem;
+}
