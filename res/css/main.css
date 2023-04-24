@@ -31,6 +31,11 @@ body {
 }
 
 
+/* Working Classes */
+.text-center {
+    text-align: center;
+}
+
 /* Buttons */
 .button-std {
     border-radius: 1rem;
