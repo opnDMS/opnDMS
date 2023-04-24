@@ -18,10 +18,22 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">
     <link rel="stylesheet" href="/res/css/main.css">
+    <link rel="stylesheet" href="/res/css/index.css">
 </head>
 
 <body>
+    <header>
+        <span class="logo">opnDMS</span>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Upload</a>
+            <a href="#">Manage</a>
+            <a href="#">Search</a>
+        </nav>
+        <div class="controls"></div>
+    </header>
     <main>
+        <h1 class="text-center">Welcome to opnDMS!</h1>
     </main>
     <script src="/res/js/themes/themes.js"></script>
 </body>
