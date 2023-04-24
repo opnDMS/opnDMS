@@ -39,8 +39,8 @@ body {
 /* Buttons */
 .button-std {
     border-radius: 1rem;
-    border: 0px;
     background-color: var(--accent-color);
+    border: 0px;
     cursor: pointer;
     padding: 0.5em 1em;
 }
@@ -58,8 +58,48 @@ header {
     background-color: var(--background2-color);
     display: grid;
     place-content: center start;
+    grid-template-columns: 1fr 5fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "logo nav controls"; 
 }
+
+header .logo { grid-area: logo; }
+header .nav { grid-area: nav; }
+header .controls { grid-area: controls; }
 
 header span {
     font-size: 1.5rem;
+    margin-left: 0.5em;
+}
+
+header nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    display: inline;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+header nav a:first-of-type {
+    margin-left: 1.5em;
+}
+
+header nav a:last-of-type {
+    margin-right: 1.5em;
+}
+
+header .controls {
+    margin-right: 0.5em;
 }
