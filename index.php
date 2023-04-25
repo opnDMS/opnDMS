@@ -26,7 +26,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /
         <span class="logo">opnDMS</span>
         <nav class="nav">
             <a href="#">Home</a>
-            <a href="#">Upload</a>
+            <a href="./upload/">Upload</a>
             <a href="#">Manage</a>
             <a href="#">Search</a>
         </nav>
