@@ -40,6 +40,7 @@ body {
 .button-std {
     border-radius: 1rem;
     background-color: var(--accent-color);
+    color: var(--background3-color);
     border: 0px;
     cursor: pointer;
     padding: 0.5em 1em;
@@ -49,6 +50,42 @@ body {
     background-color: var(--accent2-color);
 }
 
+/* Inputs */
+input[type="text"] {
+    font-size: 1rem;
+    border: 0;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: var(--background3-color);
+    color: var(--text-color);
+}
+
+input[type="number"] {
+    font-size: 1rem;
+    border: 0;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: var(--background3-color);
+    color: var(--text-color);
+}
+
+input[type="date"] {
+    font-size: 1rem;
+    border: 0;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: var(--background3-color);
+    color: var(--text-color);
+}
+
+textarea {
+    font-size: 1rem;
+    border: 0;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: var(--background3-color);
+    color: var(--text-color);
+}
 
 /* Header */
 
@@ -102,4 +139,12 @@ header nav a:last-of-type {
 
 header .controls {
     margin-right: 0.5em;
+}
+
+/* Main Content */
+
+main {
+    margin-left: 4em;
+    margin-right: 4em;
+    padding-top: 1em;
 }
