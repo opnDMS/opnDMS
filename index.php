@@ -35,7 +35,7 @@ if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /
     <main>
         <h1 class="text-center">Welcome to opnDMS!</h1>
     </main>
-    <script src="/res/js/themes/themes.js"></script>
+    <!-- <script src="/res/js/themes/themes.js"></script> -->
 </body>
 
 </html>
