@@ -1,20 +1,23 @@
-<?php 
+<?php
 
 // Check login
 session_start();
-if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /login");
+if (!isset($_SESSION['login']) || $_SESSION['login'] != true)
+    header("Location: /login");
 
 // Database connection
 require_once("../config.php");
 $con = mysqli_connect(db_host, db_user, db_password, db_name);
-if(!$con) die("Connection failed: " . mysqli_connect_error());
+if (!$con)
+    die("Connection failed: " . mysqli_connect_error());
 
 // Get Document classes
 $stmt = $con->prepare("SELECT * FROM classes");
 $stmt->execute();
 $result = $stmt->get_result();
 $classes = array();
-while($row = $result->fetch_assoc()) $classes[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $classes[$row['id']] = $row['name'];
 $stmt->close();
 
 // Get Document categories
@@ -22,7 +25,8 @@ $stmt = $con->prepare("SELECT * FROM categories");
 $stmt->execute();
 $result = $stmt->get_result();
 $categories = array();
-while($row = $result->fetch_assoc()) $categories[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $categories[$row['id']] = $row['name'];
 $stmt->close();
 
 // Get Document subcategories
@@ -30,7 +34,8 @@ $stmt = $con->prepare("SELECT * FROM subcategories");
 $stmt->execute();
 $result = $stmt->get_result();
 $subcategories = array();
-while($row = $result->fetch_assoc()) $subcategories[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $subcategories[$row['id']] = $row['name'];
 $stmt->close();
 
 // Get Document subsubcategories
@@ -38,7 +43,8 @@ $stmt = $con->prepare("SELECT * FROM subsubcategories");
 $stmt->execute();
 $result = $stmt->get_result();
 $subsubcategories = array();
-while($row = $result->fetch_assoc()) $subsubcategories[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $subsubcategories[$row['id']] = $row['name'];
 $stmt->close();
 
 ?>
@@ -64,7 +70,7 @@ $stmt->close();
     <header>
             <span class="logo">opnDMS</span>
             <nav class="nav">
-                <a href="../">Home</a>
+                <a href="/">Home</a>
                 <a href="#">Upload</a>
                 <a href="#">Manage</a>
                 <a href="#">Search</a>
@@ -81,25 +87,29 @@ $stmt->close();
             <!-- Selection of document class -->
             <h3>Document class</h3>
             <select class="button-std" name="classes" id="classes" required>
-                <?php foreach($classes as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+                <?php foreach ($classes as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Category -->
             <h3>Document category</h3>
             <select class="button-std" name="category" id="category" required>
-                <?php foreach($categories as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+                <?php foreach ($categories as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Subcategory -->
             <h3>Document subcategory</h3>
             <select class="button-std" name="subcategory" id="subcategory" required>
-                <?php foreach($subcategories as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+                <?php foreach ($subcategories as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Subsubcategory -->
             <h3>Document subsubcategory</h3>
             <select class="button-std" name="subsubcategory" id="subsubcategory" required>
-                <?php foreach($subsubcategories as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+                <?php foreach ($subsubcategories as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Subject -->
