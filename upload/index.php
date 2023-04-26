@@ -135,6 +135,7 @@ $stmt->close();
             <input class="button-std" type="submit" value="Upload">
         </form>
     </main>
+    <script src="./res/js/jquery/jquery-3.6.1.min.js"></script>
     <script src="/res/js/themes/themes.js"></script>
     <script src="./style.js"></script>
 </body>
