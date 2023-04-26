@@ -1,20 +1,23 @@
-<?php 
+<?php
 
 // Check login
 session_start();
-if(!isset($_SESSION['login']) || $_SESSION['login'] != true) header("Location: /login");
+if (!isset($_SESSION['login']) || $_SESSION['login'] != true)
+    header("Location: /login");
 
 // Database connection
 require_once("../config.php");
 $con = mysqli_connect(db_host, db_user, db_password, db_name);
-if(!$con) die("Connection failed: " . mysqli_connect_error());
+if (!$con)
+    die("Connection failed: " . mysqli_connect_error());
 
 // Get Document classes
 $stmt = $con->prepare("SELECT * FROM classes");
 $stmt->execute();
 $result = $stmt->get_result();
 $classes = array();
-while($row = $result->fetch_assoc()) $classes[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $classes[$row['id']] = $row['name'];
 $stmt->close();
 
 // Get Document categories
@@ -22,7 +25,8 @@ $stmt = $con->prepare("SELECT * FROM categories");
 $stmt->execute();
 $result = $stmt->get_result();
 $categories = array();
-while($row = $result->fetch_assoc()) $categories[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $categories[$row['id']] = $row['name'];
 $stmt->close();
 
 // Get Document subcategories
@@ -30,7 +34,8 @@ $stmt = $con->prepare("SELECT * FROM subcategories");
 $stmt->execute();
 $result = $stmt->get_result();
 $subcategories = array();
-while($row = $result->fetch_assoc()) $subcategories[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $subcategories[$row['id']] = $row['name'];
 $stmt->close();
 
 // Get Document subsubcategories
@@ -38,7 +43,8 @@ $stmt = $con->prepare("SELECT * FROM subsubcategories");
 $stmt->execute();
 $result = $stmt->get_result();
 $subsubcategories = array();
-while($row = $result->fetch_assoc()) $subsubcategories[$row['id']] = $row['name'];
+while ($row = $result->fetch_assoc())
+    $subsubcategories[$row['id']] = $row['name'];
 $stmt->close();
 
 ?>
@@ -56,37 +62,54 @@ $stmt->close();
     <link rel="stylesheet" href="/res/fontawesome/css/solid.min.css">
     <link rel="stylesheet" href="/res/css/fonts.css">
     <link rel="stylesheet" href="/res/css/main.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="../res/js/jquery/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
+    <header>
+            <span class="logo">opnDMS</span>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="#">Upload</a>
+                <a href="#">Manage</a>
+                <a href="#">Search</a>
+            </nav>
+            <div class="controls"></div>
+        </header>
     <main>
         <h1>Upload file</h1>
         <form action="upload-file.php" method="post" enctype="multipart/form-data">
             <!-- File -->
-            <input type="file" name="file" id="file" required>
+            <input type="file" name="file" id="file" aria-label="Choose a file to upload" required>
+            <label id="file-input-label" class="button-std" for="file">Choose a file...</label>
             <br>
             <!-- Selection of document class -->
             <h3>Document class</h3>
-            <select name="classes" id="classes" required>
-                <?php foreach($classes as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+            <select class="button-std" name="classes" id="classes" required>
+                <?php foreach ($classes as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Category -->
             <h3>Document category</h3>
-            <select name="category" id="category" required>
-                <?php foreach($categories as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+            <select class="button-std" name="category" id="category" required>
+                <?php foreach ($categories as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Subcategory -->
             <h3>Document subcategory</h3>
-            <select name="subcategory" id="subcategory" required>
-                <?php foreach($subcategories as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+            <select class="button-std" name="subcategory" id="subcategory" required>
+                <?php foreach ($subcategories as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Subsubcategory -->
             <h3>Document subsubcategory</h3>
-            <select name="subsubcategory" id="subsubcategory" required>
-                <?php foreach($subsubcategories as $id => $name) echo "<option value='$id'>$name</option>"; ?>
+            <select class="button-std" name="subsubcategory" id="subsubcategory" required>
+                <?php foreach ($subsubcategories as $id => $name)
+                    echo "<option value='$id'>$name</option>"; ?>
             </select>
             <br>
             <!-- Document Subject -->
@@ -120,10 +143,11 @@ $stmt->close();
             Binder: <input type="number" name="binder" id="binder"><br>
             <!-- Submit -->
             <h3>Hochladen</h3>
-            <input type="submit" value="Upload">
+            <input class="button-std" type="submit" value="Upload">
         </form>
     </main>
     <script src="/res/js/themes/themes.js"></script>
+    <script src="./style.js"></script>
 </body>
 
 </html>
