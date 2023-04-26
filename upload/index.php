@@ -76,7 +76,7 @@ $stmt->close();
         <form action="upload-file.php" method="post" enctype="multipart/form-data">
             <!-- File -->
             <input type="file" name="file" id="file" aria-label="Choose a file to upload" required>
-            <label class="button-std" for="file">Choose a file...</label>
+            <label id="file-input-label" class="button-std" for="file">Choose a file...</label>
             <br>
             <!-- Selection of document class -->
             <h3>Document class</h3>
