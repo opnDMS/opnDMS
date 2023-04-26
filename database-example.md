@@ -20,3 +20,4 @@ CREATE DATABASE IF NOT EXISTS `<database_name>` DEFAULT CHARACTER SET utf8mb4 CO
 
 > **Note:**
 > You need to use a database using utf8mb4_general_ci encoding.
+> Also documents>identifier needs to be Auto-Incremental, will change the example database file to reflect this soon.
