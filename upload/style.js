@@ -1,24 +1,23 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 
-    let single = "File chosen";
+    let single = "file chosen";
 
     fileUploadStyling(single);
 
 })
 
 function fileUploadStyling(single){
-    let input = document.querySelectorAll("input[type=file]");
-    for (let i = 0; i < input.length; i++) {
-        var inputFile = input[i];
-        inputFile.addEventListener('change',function(e){
+    let inputFile = $(":file");
+        $(inputFile).on("change", function(e) {
 
-            var label = this.nextElementSibling;
+            var label = $("#file-input-label");
 
             if(this.files && this.files.length > 0){
-                label.innerHTML = this.files.length + ' ' + single;
+                $(label).text(this.files.length + ' ' + single);
+                console.log("file selected");
             }else{
-                label.innerHTML = this.files[0].name + ' ' + single;
+                $(label).text(this.files[0].name + ' ' + single);
+                console.log("file selected");
             }
         });
-    }
-}
+    };
