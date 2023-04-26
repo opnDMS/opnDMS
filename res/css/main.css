@@ -51,33 +51,9 @@ body {
 }
 
 /* Inputs */
-input[type="text"] {
-    font-size: 1rem;
-    border: 0;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    background-color: var(--background3-color);
-    color: var(--text-color);
-}
-
-input[type="number"] {
-    font-size: 1rem;
-    border: 0;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    background-color: var(--background3-color);
-    color: var(--text-color);
-}
-
-input[type="date"] {
-    font-size: 1rem;
-    border: 0;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    background-color: var(--background3-color);
-    color: var(--text-color);
-}
-
+input[type="text"],
+input[type="number"],
+input[type="date"],
 textarea {
     font-size: 1rem;
     border: 0;
@@ -87,6 +63,7 @@ textarea {
     color: var(--text-color);
 }
 
+
 /* Header */
 
 header {
@@ -95,16 +72,24 @@ header {
     background-color: var(--background2-color);
     display: grid;
     place-content: center start;
-    grid-template-columns: 1fr 5fr 1fr; 
-    grid-template-rows: 1fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-    "logo nav controls"; 
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "logo nav controls";
 }
 
-header .logo { grid-area: logo; }
-header .nav { grid-area: nav; }
-header .controls { grid-area: controls; }
+header .logo {
+    grid-area: logo;
+}
+
+header .nav {
+    grid-area: nav;
+}
+
+header .controls {
+    grid-area: controls;
+}
 
 header span {
     font-size: 1.5rem;
