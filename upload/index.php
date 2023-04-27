@@ -81,66 +81,90 @@ $stmt->close();
         <h1>Upload file</h1>
         <form action="upload-file.php" method="post" enctype="multipart/form-data">
             <!-- File -->
+            <div class="form-container" id="docfile">
             <input type="file" name="file" id="file" aria-label="Choose a file to upload" required>
             <label id="file-input-label" class="button-std" for="file">Choose a file...</label>
-            <br>
+            </div>
             <!-- Selection of document class -->
+            <div class="form-container" id="class">
             <h3>Document class</h3>
             <select class="button-std" name="classes" id="classes" required>
                 <?php foreach ($classes as $id => $name)
                     echo "<option value='$id'>$name</option>"; ?>
             </select>
-            <br>
+            </div>
             <!-- Document Category -->
+            <div class="form-container" id="cat">
             <h3>Document category</h3>
             <select class="button-std" name="category" id="category" required>
                 <?php foreach ($categories as $id => $name)
                     echo "<option value='$id'>$name</option>"; ?>
             </select>
-            <br>
+            </div>
             <!-- Document Subcategory -->
+            <div class="form-container" id="subcat">
             <h3>Document subcategory</h3>
             <select class="button-std" name="subcategory" id="subcategory" required>
                 <?php foreach ($subcategories as $id => $name)
                     echo "<option value='$id'>$name</option>"; ?>
             </select>
-            <br>
+            </div>
             <!-- Document Subsubcategory -->
+            <div class="form-container" id="subsubcat">
             <h3>Document subsubcategory</h3>
             <select class="button-std" name="subsubcategory" id="subsubcategory" required>
                 <?php foreach ($subsubcategories as $id => $name)
                     echo "<option value='$id'>$name</option>"; ?>
             </select>
-            <br>
+            </div>
             <!-- Document Subject -->
+            <div class="form-container" id="docsubject">
             <h3>Document subject</h3>
             <input type="text" name="subject" id="subject">
-            <br>
+            </div>
             <!-- Document Title -->
+            <div class="form-container" id="doctitle">
             <h3>Document title</h3>
-            This will be shown in the document list.<br>
+            <p>This will be shown in the document list.</p>
             <input type="text" name="title" id="title" required>
-            <br>
+            </div>
             <!-- Document summary -->
+            <div class="form-container" id="docsummary">
             <h3>Document summary</h3>
             <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
-            <br>
+            </div>
             <!-- Document dates -->
+            <div class="form-container" id="docdates">
             <h3>Document dates</h3>
-            Date: <input type="date" name="date" id="date"><br>
-            Start date: <input type="date" name="startdate" id="startdate"><br>
-            End date: <input type="date" name="enddate" id="enddate"><br>
-            <br>
+            <div id="date-container">
+            <label for="date">Date: </label><input type="date" name="date" id="date">
+            </div>
+            <div class="startdate-container">
+            <label for="startdate">Start date: </label><input type="date" name="startdate" id="startdate">
+            </div>
+            <div class="enddate-container">
+            <label for="enddate">End date: </label><input type="date" name="enddate" id="enddate">
+            </div>    
+            </div>
             <!-- Document Tags -->
+            <div class="form-container" id="doctags">
             <h3>Document tags</h3>
-            Divide tags with a comma (,)<br>
+            <p>Divide tags with a comma (,)</p>
             <input type="text" name="tags" id="tags">
-            <br>
+            </div>
             <!-- Document RL-Storage -->
+            <div class="form-container" id="rl-storage">
             <h3>Document Storage</h3>
-            If the document is also stored somewhere in Real Life, please enter the location here.<br>
-            Shelf: <input type="number" name="shelf" id="shelf"><br>
-            Binder: <input type="number" name="binder" id="binder"><br>
+            <p>If the document is also stored somewhere in Real Life, please enter the location here.</p>
+            <div id="shelf-container">
+                <label for="shelf">Shelf: </label>
+                <input type="number" name="shelf" id="shelf">
+            </div>
+            <div id="folder-container">
+                <label for="binder">Binder: </label>
+                <input type="number" name="binder" id="binder">
+            </div>
+            </div>
             <!-- Submit -->
             <h3>Hochladen</h3>
             <input class="button-std" type="submit" value="Upload">
