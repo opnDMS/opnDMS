@@ -11,3 +11,25 @@ input[type="file"]{
 input[type="file"]:focus + label[for="files"]{
     border: 1px solid #85E5FF;
 }
+
+#shelf-container,
+#folder-container {
+    display: inline;
+}
+
+#folder-container {
+    margin-left: 2em;
+}
+
+#docdates div {
+    display: inline;
+}
+
+#docdates div:nth-of-type(2),
+#docdates div:last-of-type {
+    margin-left: 1.5em;
+}
+
+.form-container {
+    margin-top: 2em;
+}
