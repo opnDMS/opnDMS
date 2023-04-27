@@ -70,68 +70,103 @@ $stmt->close();
     <header>
             <span class="logo">opnDMS</span>
             <nav class="nav">
-                <a href="/">Home</a>
-                <a href="#">Upload</a>
-                <a href="#">Manage</a>
-                <a href="#">Search</a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/">Home
+            </a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/upload/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/upload/">Upload
+            </a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/manage/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/">Manage
+            </a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/search/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/">Search
+            </a>
             </nav>
             <div class="controls"></div>
         </header>
     <main>
         <h1>Upload file</h1>
         <form action="upload-file.php" method="post" enctype="multipart/form-data">
-            <!-- File -->
-            <div class="form-container" id="docfile">
-            <input type="file" name="file" id="file" aria-label="Choose a file to upload" required>
-            <label id="file-input-label" class="button-std" for="file">Choose a file...</label>
+        <div class="uploadcontainer">
+            <div class="docpreview">
+
             </div>
-            <!-- Selection of document class -->
+            <div class="docupload">
+                <!-- File -->
+                <div class="form-container" id="docfile">
+                    <input type="file" name="file" id="file" aria-label="Choose a file to upload" required>
+                    <label id="file-input-label" class="button-std" for="file">Choose a file...</label>
+                </div>
+            </div>
+            <div class="docdetails">
+                <!-- Selection of document class -->
             <div class="form-container" id="class">
             <h3>Document class</h3>
-            <select class="button-std" name="classes" id="classes" required>
+            <select class="button-black" name="classes" id="classes" required>
                 <?php foreach ($classes as $id => $name)
-                    echo "<option value='$id'>$name</option>"; ?>
+                    echo "<option id='classes$id' value='$id'>$name</option>"; ?>
             </select>
             </div>
             <!-- Document Category -->
             <div class="form-container" id="cat">
             <h3>Document category</h3>
-            <select class="button-std" name="category" id="category" required>
+            <select class="button-black" name="category" id="category" required>
                 <?php foreach ($categories as $id => $name)
-                    echo "<option value='$id'>$name</option>"; ?>
+                    echo "<option id='cat$id' value='$id'>$name</option>"; ?>
             </select>
             </div>
             <!-- Document Subcategory -->
             <div class="form-container" id="subcat">
             <h3>Document subcategory</h3>
-            <select class="button-std" name="subcategory" id="subcategory" required>
+            <select class="button-black" name="subcategory" id="subcategory" required>
                 <?php foreach ($subcategories as $id => $name)
-                    echo "<option value='$id'>$name</option>"; ?>
+                    echo "<option id='subcat$id' value='$id'>$name</option>"; ?>
             </select>
             </div>
             <!-- Document Subsubcategory -->
             <div class="form-container" id="subsubcat">
             <h3>Document subsubcategory</h3>
-            <select class="button-std" name="subsubcategory" id="subsubcategory" required>
+            <select class="button-black" name="subsubcategory" id="subsubcategory" required>
                 <?php foreach ($subsubcategories as $id => $name)
-                    echo "<option value='$id'>$name</option>"; ?>
+                    echo "<option id='subsubcat$id' value='$id'>$name</option>"; ?>
             </select>
             </div>
             <!-- Document Subject -->
             <div class="form-container" id="docsubject">
             <h3>Document subject</h3>
-            <input type="text" name="subject" id="subject">
+            <input type="text" name="subject" id="subject" maxlength="128" placeholder="Subject">
             </div>
             <!-- Document Title -->
             <div class="form-container" id="doctitle">
             <h3>Document title</h3>
             <p>This will be shown in the document list.</p>
-            <input type="text" name="title" id="title" required>
+            <input type="text" name="title" id="title" maxlength="128" placeholder="Title" required>
             </div>
             <!-- Document summary -->
             <div class="form-container" id="docsummary">
             <h3>Document summary</h3>
-            <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
+            <textarea name="summary" id="summary" cols="30" rows="10" maxlength="1024" placeholder="Summary"></textarea>
             </div>
             <!-- Document dates -->
             <div class="form-container" id="docdates">
@@ -150,7 +185,7 @@ $stmt->close();
             <div class="form-container" id="doctags">
             <h3>Document tags</h3>
             <p>Divide tags with a comma (,)</p>
-            <input type="text" name="tags" id="tags">
+            <input type="text" name="tags" id="tags" placeholder="e.g.: school,important,confidential">
             </div>
             <!-- Document RL-Storage -->
             <div class="form-container" id="rl-storage">
@@ -168,9 +203,11 @@ $stmt->close();
             <!-- Submit -->
             <h3>Hochladen</h3>
             <input class="button-std" type="submit" value="Upload">
+            </div>
+        </div>
         </form>
     </main>
-    <script src="/res/js/themes/themes.js"></script>
+    <!--<script src="/res/js/themes/themes.js"></script>-->
     <script src="./style.js"></script>
 </body>
 
