@@ -12,24 +12,79 @@ input[type="file"]:focus + label[for="files"]{
     border: 1px solid #85E5FF;
 }
 
-#shelf-container,
-#folder-container {
-    display: inline;
+input[type="text"],
+textarea {
+    width: 100%;
 }
 
-#folder-container {
-    margin-left: 2em;
-}
 
-#docdates div {
-    display: inline;
+#docdates div,
+#rl-storage div {
+    width: 100%;
+    display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
 }
 
 #docdates div:nth-of-type(2),
-#docdates div:last-of-type {
-    margin-left: 1.5em;
+#docdates div:last-of-type,
+#rl-storage div:last-of-type {
+    margin-top: 1em;
+}
+
+#docdates input[type="date"],
+#docdates input[type="number"] {
+    /* margin-right: 4em; */
+    width: 50%;
 }
 
 .form-container {
     margin-top: 2em;
+}
+
+.uploadcontainer {  display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-rows: 0.1fr 1.9fr;
+    gap: 0.5em 0.5em;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "docupload docdetails"
+      "docpreview docdetails";
+  }
+  
+.docpreview {
+    grid-area: docpreview;
+    background-color: #000000;
+    margin: 1em 1em 1em 1em;
+}
+  
+.docupload { 
+    grid-area: docupload; 
+    padding: 1em 1em 1em 1em;
+}
+  
+.docdetails { 
+    grid-area: docdetails; 
+    padding: 1em 1em 1em 1em;
+}
+  
+.button-black {
+    width: 100%;
+}
+
+input[type="submit"] {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+select {
+    font-size: 1rem;
+}
+
+select.bottom-flat {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
