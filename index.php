@@ -26,10 +26,38 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] != true)
     <header>
         <span class="logo">opnDMS</span>
         <nav class="nav">
-            <a href="#">Home</a>
-            <a href="/upload/">Upload</a>
-            <a href="#">Manage</a>
-            <a href="#">Search</a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/">Home
+            </a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/upload/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/upload/">Upload
+            </a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/manage/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/">Manage
+            </a>
+            <a 
+                <?php if ($_SERVER['SCRIPT_NAME'] == "/search/index.php") { ?> 
+                    class="active" 
+                <?php   } else {  ?>
+                    class=""
+                <?php } ?> 
+                    href="/">Search
+            </a>
         </nav>
         <div class="controls"></div>
     </header>
